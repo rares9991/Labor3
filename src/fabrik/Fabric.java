@@ -39,17 +39,21 @@ public class Fabric {
         assignCategory();
         for (Produkt p: my_fabric){
             if(Objects.equals(p.getCategory(), "#a")) {
-                System.out.print("For next year we need to make:");
+                System.out.print("For next year we need for product with id "+ p.getId() +" to make:");
                 System.out.println(p.getThisYear().get("sold") + p.getThisYear().get("sold")/2);
             }
             else if (Objects.equals(p.getCategory(), "#b")) {
-                System.out.print("For next year we need to make:");
+                System.out.print("For next year we need for product with id "+ p.getId() +" to make:");
                 System.out.println(p.getThisYear().get("sold") + p.getThisYear().get("sold")/10);
             }
             else{
-                System.out.print("For next year we need to make:");
+                System.out.print("For next year we need for product with id "+ p.getId() +" to make:");
                 System.out.println(p.getThisYear().get("sold") - p.getThisYear().get("sold")/10);
             }
         }
+    }
+    public void printFabric(){
+        for (Produkt p: my_fabric)
+            System.out.println("Product with id: " + p.getId() + " " + p.getCategory());
     }
 }

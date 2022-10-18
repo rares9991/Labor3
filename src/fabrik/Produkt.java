@@ -7,16 +7,26 @@ import java.util.Map;
 public class Produkt {
     private Map<String, Integer> lastYear = new HashMap<String, Integer>();
     private Map<String, Integer> thisYear = new HashMap<String, Integer>();
-    private int demand;
+    private double demand;
+    private int id;
     private String category;
 
-    public Produkt(Integer lastYearCreated, Integer lastYearSold, Integer thisYearCreated, Integer thisYearSold) {
+    public Produkt(Integer id, Integer lastYearCreated, Integer lastYearSold, Integer thisYearCreated, Integer thisYearSold) {
+        this.id = id;
         this.lastYear.put("created", lastYearCreated);
         this.lastYear.put("sold", lastYearSold);
         this.thisYear.put("created", thisYearCreated);
         this.thisYear.put("sold", thisYearSold);
-        this.demand = lastYearSold/lastYearCreated - thisYearSold/thisYearCreated;
+        this.demand = (double)lastYearSold/lastYearCreated - (double)thisYearSold/thisYearCreated;
         this.category = "";
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Map<String, Integer> getLastYear() {
@@ -43,7 +53,7 @@ public class Produkt {
         this.category = category;
     }
 
-    public int getDemand() {
+    public double getDemand() {
         return demand;
     }
 
